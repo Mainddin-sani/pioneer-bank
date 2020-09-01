@@ -26,8 +26,11 @@ const depositButton = document.getElementById('depositButton');
 // withdraw button hanler 
 const btnwithdraw = document.getElementById('withdraw');
 btnwithdraw.addEventListener('click', function(){
-    const withdrawNumber = getInput('withdrawAmount');
-
+    
+    const withdrawNumber = parseFloat(getInput('withdrawAmount'));
+    const blance = parseFloat(document.getElementById('currentBalacne').innerText);
+    const min=blance-withdrawNumber;
+    document.getElementById('currentBalacne').innerText=min;
     uptoDateNumber('withdrawNumberW', withdrawNumber);
 });
 
@@ -39,8 +42,9 @@ function getInput(id){
     return withdrawNumber;
 }
 function uptoDateNumber(id, depositNumber){
+    
     const depositBalance = document.getElementById(id).innerText;
-        const currentDepostNumber = parseFloat(depositBalance);
-        const toTaldepsot = depositNumber + currentDepostNumber;
-        document.getElementById(id).innerText = toTaldepsot;
+    const currentDepostNumber = parseFloat(depositBalance);
+    const toTaldepsot = depositNumber + currentDepostNumber;
+    document.getElementById(id).innerText = toTaldepsot;
 }
