@@ -29,9 +29,15 @@ btnwithdraw.addEventListener('click', function(){
     
     const withdrawNumber = parseFloat(getInput('withdrawAmount'));
     const blance = parseFloat(document.getElementById('currentBalacne').innerText);
-    const min=blance-withdrawNumber;
-    document.getElementById('currentBalacne').innerText=min;
-    uptoDateNumber('withdrawNumberW', withdrawNumber);
+    if(withdrawNumber <= blance){
+        const min=blance-withdrawNumber;
+        document.getElementById('currentBalacne').innerText=min;
+        uptoDateNumber('withdrawNumberW', withdrawNumber);
+    }else{
+        alert('Tomer tk nai');
+        return;
+    }
+    
 });
 
 
